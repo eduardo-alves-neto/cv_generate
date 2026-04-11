@@ -24,12 +24,29 @@ describe('generateATSContent', () => {
   })
 
   it('returns text from Gemini response', async () => {
-    const fakeText = '## CONTACT\nName: John Doe\n## SKILLS\nTypeScript'
+    const fakeText = '## CONTATO\nNome: João Silva\n## HABILIDADES\nTypeScript'
     mockGenerateContent(vi.fn().mockResolvedValue({ text: fakeText }))
 
     const result = await generateATSContent('CV text', 'Software Engineer job')
 
     expect(result).toBe(fakeText)
+  })
+
+  it('sends prompt containing Portuguese language instruction and key headers', async () => {
+    let capturedContents = ''
+    mockGenerateContent(vi.fn().mockImplementation(async ({ contents }: { contents: string }) => {
+      capturedContents = contents
+      return { text: '## CONTATO\nNome: Test' }
+    }))
+
+    await generateATSContent('Meu currículo', 'Vaga de engenheiro')
+
+    expect(capturedContents).toContain('pt-BR')
+    expect(capturedContents).toContain('CONTATO')
+    expect(capturedContents).toContain('SEÇÕES_ADICIONAIS')
+    expect(capturedContents).toContain('não omita')
+    expect(capturedContents).toContain('Meu currículo')
+    expect(capturedContents).toContain('Vaga de engenheiro')
   })
 
   it('throws AI_UNAVAILABLE when GEMINI_API_KEY is missing', async () => {

@@ -4,24 +4,24 @@ import type { ATSContent } from '../../src/types'
 
 const SAMPLE_CONTENT: ATSContent = {
   contactInfo: {
-    name: 'Jane Smith',
-    email: 'jane@example.com',
-    phone: '+1 555 000 1234',
-    location: 'New York, NY',
+    name: 'Jana Silva',
+    email: 'jana@exemplo.com',
+    phone: '+55 11 99999-1234',
+    location: 'São Paulo, SP',
   },
-  summary: 'Experienced engineer with 8 years of experience.',
+  summary: 'Engenheira experiente com 8 anos de experiência em TypeScript e Node.js.',
   experience: [
     {
       company: 'Acme Corp',
-      role: 'Senior Engineer',
-      period: 'Jan 2020 – Present',
-      bullets: ['Built microservices', 'Led team of 5'],
+      role: 'Engenheira Sênior',
+      period: 'Jan 2020 – Presente',
+      bullets: ['Construiu microsserviços', 'Liderou equipe de 5'],
     },
   ],
   education: [
     {
-      institution: 'MIT',
-      degree: 'BS Computer Science',
+      institution: 'USP',
+      degree: 'Bacharelado em Ciência da Computação',
       period: '2013–2017',
     },
   ],
@@ -44,13 +44,40 @@ describe('generatePDF', () => {
 
   it('handles empty experience and education arrays', async () => {
     const minimal: ATSContent = {
-      contactInfo: { name: 'John Doe' },
+      contactInfo: { name: 'João Silva' },
       experience: [],
       education: [],
       skills: [],
     }
 
     const buffer = await generatePDF(minimal)
+
+    expect(buffer).toBeInstanceOf(Buffer)
+    expect(buffer.length).toBeGreaterThan(0)
+  })
+
+  it('renders additionalSections and returns non-empty Buffer', async () => {
+    const withExtra: ATSContent = {
+      ...SAMPLE_CONTENT,
+      additionalSections: [
+        { title: 'Projetos', content: 'Projeto X: Sistema de recomendação\n- Python, FastAPI' },
+        { title: 'Certificações', content: 'AWS Solutions Architect — 2023' },
+      ],
+    }
+
+    const buffer = await generatePDF(withExtra)
+
+    expect(buffer).toBeInstanceOf(Buffer)
+    expect(buffer.length).toBeGreaterThan(0)
+  })
+
+  it('handles undefined additionalSections without error', async () => {
+    const noExtra: ATSContent = {
+      ...SAMPLE_CONTENT,
+      additionalSections: undefined,
+    }
+
+    const buffer = await generatePDF(noExtra)
 
     expect(buffer).toBeInstanceOf(Buffer)
     expect(buffer.length).toBeGreaterThan(0)

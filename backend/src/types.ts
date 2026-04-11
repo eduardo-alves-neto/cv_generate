@@ -21,12 +21,18 @@ export interface EducationEntry {
   period?: string
 }
 
+export interface AdditionalSection {
+  title: string
+  content: string
+}
+
 export interface ATSContent {
   contactInfo: ContactInfo
   summary?: string
   experience: ExperienceEntry[]
   education: EducationEntry[]
   skills: string[]
+  additionalSections?: AdditionalSection[]
 }
 
 export interface ATSResult {

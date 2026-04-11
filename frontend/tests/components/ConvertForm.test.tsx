@@ -46,7 +46,7 @@ describe('ConvertForm error display', () => {
     ['FILE_TOO_LARGE', /10 mb limit/i],
     ['INVALID_JOB_DESCRIPTION', /valid job description/i],
     ['UNREADABLE_PDF', /no extractable text/i],
-    ['AI_UNAVAILABLE', /ollama serve/i],
+    ['AI_UNAVAILABLE', /GEMINI_API_KEY/i],
     ['AI_TIMEOUT', /timed out/i],
     ['INTERNAL_ERROR', /unexpected error/i],
   ]
