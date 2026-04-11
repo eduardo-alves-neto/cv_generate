@@ -1,0 +1,15 @@
+{
+  "name": "cv-generate",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently -k -p \"[{name}]\" -n \"backend,frontend\" -c \"blue,green\" \"pnpm --filter backend dev\" \"pnpm --filter frontend dev\"",
+    "build": "pnpm --filter @cv-ats/shared build && pnpm --filter backend build && pnpm --filter frontend build",
+    "test": "pnpm --filter backend test && pnpm --filter frontend test",
+    "test:watch": "concurrently \"pnpm --filter backend test:watch\" \"pnpm --filter frontend test:watch\"",
+    "test:e2e": "pnpm --filter e2e test"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
