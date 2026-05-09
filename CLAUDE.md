@@ -1,6 +1,6 @@
 # cv_generate Development Guidelines
 
-Auto-generated from all feature plans. Last updated: 2026-04-17
+Auto-generated from all feature plans. Last updated: 2026-05-09
 
 ## Active Technologies
 - TypeScript 5.x (strict mode) — Node.js 20+ (backend only) + `@google/genai` (prompt change), `pdfkit` (layout improvements), Zod (no schema change needed — `ATSContent` is internal) (003-pdf-format-pt)
@@ -12,6 +12,8 @@ Auto-generated from all feature plans. Last updated: 2026-04-17
 - TypeScript 5.x strict — Node.js 20+ (backend), browser (frontend) + React 18 + Vite + TanStack React Query + Axios (frontend); Express v4 + Multer + Zod + `@google/genai` (backend); Zod shared schemas in `packages/shared` (006-user-gemini-api-key)
 - `localStorage` (browser only) — no server-side persistence (006-user-gemini-api-key)
 - TypeScript 5.x strict — Node.js 20+ + `@google/genai` (already installed), Express v4, Zod (007-job-desc-priority)
+- TypeScript 5.x strict mode (React 18 + Express v4) + React 18, Tailwind CSS 3.4, shadcn/ui, Vite (frontend); Express v4, Zod (backend) (008-apply-design-system)
+- N/A — styling only, no data persistence changes (008-apply-design-system)
 
 - TypeScript 5.x (strict mode) — Node.js 20+ (backend), browser (002-cv-ats-converter)
 
@@ -52,9 +54,9 @@ pnpm build            # production build
 - pnpm workspaces monorepo: frontend, backend, packages/shared, e2e
 
 ## Recent Changes
+- 008-apply-design-system: Added TypeScript 5.x strict mode (React 18 + Express v4) + React 18, Tailwind CSS 3.4, shadcn/ui, Vite (frontend); Express v4, Zod (backend)
 - 007-job-desc-priority: Added TypeScript 5.x strict — Node.js 20+ + `@google/genai` (already installed), Express v4, Zod
 - 006-user-gemini-api-key: Added TypeScript 5.x strict — Node.js 20+ (backend), browser (frontend) + React 18 + Vite + TanStack React Query + Axios (frontend); Express v4 + Multer + Zod + `@google/genai` (backend); Zod shared schemas in `packages/shared`
-- 005-horizontal-form-layout: Added TypeScript 5.3 strict — React 18.2 (browser) + Tailwind CSS 3.4 (CSS Grid utilities), existing lucide-react + clsx
 
   — Ollama was impractical on CPU-only hardware (> 60 s per request)
   — Gemini 1.5 Flash averages 3–8 s; free tier sufficient for single-user use

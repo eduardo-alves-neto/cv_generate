@@ -15,12 +15,12 @@ export function HomePage() {
   }
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-primary/5 to-background px-4 pb-16 pt-10 sm:pt-16">
+    <main className="min-h-screen bg-background px-4 pb-15 pt-9">
       <div className="mx-auto w-full max-w-4xl">
-        {/* Form card */}
         {stage !== 'success' && (
           <>
-            <div className="rounded-xl border border-border bg-card p-6 shadow-sm">
+            {/* Form card — flat, no shadow, warm border */}
+            <div className="border border-border bg-background p-6">
               <ConvertForm
                 onConvertStart={() => setStage('pending')}
                 onConvertSuccess={(url) => {
@@ -31,9 +31,8 @@ export function HomePage() {
               />
             </div>
 
-            {/* Progress steps — rendered outside the card so it stays above the fold on mobile */}
             {stage !== 'idle' && (
-              <div className="mt-4 rounded-xl border border-border bg-card px-6 py-2 shadow-sm">
+              <div className="mt-4 border border-border bg-background px-6 py-2">
                 <ProgressSteps
                   isActive={stage === 'pending'}
                   hasError={stage === 'error'}

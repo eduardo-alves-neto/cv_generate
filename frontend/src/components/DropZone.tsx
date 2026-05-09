@@ -108,17 +108,17 @@ export function DropZone({
       onDragLeave={handleDragLeave}
       onDrop={handleDrop}
       className={clsx(
-        'flex flex-col items-center justify-center gap-3 rounded-xl border-2 border-dashed',
-        'px-6 py-10 text-center transition-colors duration-200',
+        'flex flex-col items-center justify-center gap-3 border-2 border-dashed',
+        'px-6 py-9 text-center transition-colors duration-200',
         'focus:outline-none focus-visible:ring-2 focus-visible:ring-ring',
         !disabled && 'cursor-pointer',
         {
-          'border-border bg-background hover:border-primary/50 hover:bg-accent/20':
+          'border-border bg-background hover:border-primary hover:bg-accent/20':
             !dragActive && !isSelected && !hasError && !disabled,
-          'border-primary bg-primary/5': dragActive,
-          'border-green-500/70 bg-green-50/50': isSelected,
-          'border-destructive/70 bg-destructive/5': hasError,
-          'cursor-not-allowed opacity-50': disabled,
+          'border-primary bg-muted/20': dragActive,
+          'border-success bg-accent/20': isSelected,
+          'border-destructive bg-destructive/5': hasError,
+          'cursor-not-allowed opacity-40': disabled,
         },
       )}
     >
@@ -135,10 +135,10 @@ export function DropZone({
 
       {isSelected ? (
         <>
-          <FileCheck2 className="h-10 w-10 text-green-500" aria-hidden="true" />
+          <FileCheck2 className="h-10 w-10 text-success" aria-hidden="true" />
           <div>
-            <p className="text-sm font-medium text-foreground">{selectedFile.name}</p>
-            <p className="mt-0.5 text-xs text-muted-foreground">
+            <p className="ts-body-sm font-medium text-foreground">{selectedFile.name}</p>
+            <p className="mt-1 ts-caption text-muted-foreground">
               {(selectedFile.size / 1024 / 1024).toFixed(2)} MB &middot; Click to change
             </p>
           </div>
@@ -147,8 +147,8 @@ export function DropZone({
         <>
           <XCircle className="h-10 w-10 text-destructive" aria-hidden="true" />
           <div>
-            <p className="text-sm font-medium text-destructive">{errorMsg}</p>
-            <p className="mt-0.5 text-xs text-muted-foreground">Click or drag to try again</p>
+            <p className="ts-body-sm font-medium text-destructive">{errorMsg}</p>
+            <p className="mt-1 ts-caption text-muted-foreground">Click or drag to try again</p>
           </div>
         </>
       ) : (
@@ -161,10 +161,10 @@ export function DropZone({
             aria-hidden="true"
           />
           <div>
-            <p className="text-sm font-medium text-foreground">
+            <p className="ts-body-sm font-medium text-foreground">
               {dragActive ? 'Drop your file here' : 'Drag & drop your PDF resume'}
             </p>
-            <p className="mt-0.5 text-xs text-muted-foreground">
+            <p className="mt-1 ts-caption text-muted-foreground">
               or click to browse &middot; max 10 MB
             </p>
           </div>
