@@ -7,6 +7,7 @@ import { AxiosError } from 'axios'
 export interface ConvertInput {
   file: File
   jobDescription: string
+  geminiApiKey: string
 }
 
 export interface ConvertResult {
@@ -29,10 +30,11 @@ export function useConvert() {
   const [blobUrl, setBlobUrl] = useState<string | null>(null)
 
   const mutation = useMutation<ConvertResult, Error, ConvertInput>({
-    mutationFn: async ({ file, jobDescription }: ConvertInput) => {
+    mutationFn: async ({ file, jobDescription, geminiApiKey }: ConvertInput) => {
       const formData = new FormData()
       formData.append('file', file)
       formData.append('jobDescription', jobDescription)
+      formData.append('geminiApiKey', geminiApiKey)
       const blob = await convertCV(formData)
       const url = URL.createObjectURL(blob)
       return { blob, blobUrl: url }

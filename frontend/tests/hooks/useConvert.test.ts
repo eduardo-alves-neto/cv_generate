@@ -43,7 +43,7 @@ describe('useConvert', () => {
     let successUrl: string | undefined
     act(() => {
       result.current.convert(
-        { file: new File(['pdf'], 'resume.pdf', { type: 'application/pdf' }), jobDescription: 'Engineer role' },
+        { file: new File(['pdf'], 'resume.pdf', { type: 'application/pdf' }), jobDescription: 'Engineer role', geminiApiKey: 'AIzaTestKey123' },
         { onSuccess: (url) => { successUrl = url } },
       )
     })
@@ -62,7 +62,7 @@ describe('useConvert', () => {
     const { result } = renderHook(() => useConvert(), { wrapper: makeWrapper() })
 
     act(() => {
-      result.current.convert({ file: new File(['pdf'], 'r.pdf', { type: 'application/pdf' }), jobDescription: 'job' })
+      result.current.convert({ file: new File(['pdf'], 'r.pdf', { type: 'application/pdf' }), jobDescription: 'job', geminiApiKey: 'AIzaTestKey123' })
     })
     await waitFor(() => expect(result.current.blobUrl).toBe('blob:test-url'))
 

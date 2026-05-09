@@ -63,6 +63,7 @@ describe('POST /api/convert', () => {
     const res = await request(app)
       .post('/api/convert')
       .field('jobDescription', 'Software Engineer role')
+      .field('geminiApiKey', 'AIzaTestKey123')
       .attach('file', Buffer.from('%PDF-1.4 empty'), { filename: 'resume.pdf', contentType: 'application/pdf' })
 
     expect(res.status).toBe(422)
@@ -76,6 +77,7 @@ describe('POST /api/convert', () => {
     const res = await request(app)
       .post('/api/convert')
       .field('jobDescription', 'Software Engineer role')
+      .field('geminiApiKey', 'AIzaTestKey123')
       .attach('file', Buffer.from('%PDF-1.4'), { filename: 'resume.pdf', contentType: 'application/pdf' })
 
     expect(res.status).toBe(503)
@@ -92,6 +94,7 @@ describe('POST /api/convert', () => {
     const res = await request(app)
       .post('/api/convert')
       .field('jobDescription', 'Software Engineer role')
+      .field('geminiApiKey', 'AIzaTestKey123')
       .attach('file', Buffer.from('%PDF-1.4'), { filename: 'resume.pdf', contentType: 'application/pdf' })
 
     expect(res.status).toBe(200)
