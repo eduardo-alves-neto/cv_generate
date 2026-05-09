@@ -28,7 +28,7 @@ convertRouter.post(
         )
       }
 
-      const { jobDescription } = parsed.data
+      const { jobDescription, geminiApiKey } = parsed.data
       const jobId = uuidv4()
 
       jobs.set(jobId, {
@@ -41,7 +41,7 @@ convertRouter.post(
 
       const cvText = await extractTextFromPdf(req.file.buffer)
 
-      const rawAIResponse = await generateATSContent(cvText, jobDescription)
+      const rawAIResponse = await generateATSContent(cvText, jobDescription, geminiApiKey)
 
       const structuredContent = parseATSContent(rawAIResponse)
 
