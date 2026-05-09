@@ -1,27 +1,59 @@
+/* ThoughtStream Design System — Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&family=Source+Code+Pro:wght@400;500&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --primary: 221.2 83.2% 53.3%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
-    --radius: 0.5rem;
+    /* ThoughtStream Color Tokens (HSL format for Tailwind opacity modifiers) */
+
+    /* Surfaces */
+    --background: 60 9% 98%;       /* #FAFAF9 warm white */
+    --foreground: 24 10% 10%;      /* #1C1917 warm black */
+    --card: 60 9% 98%;             /* #FAFAF9 */
+    --card-foreground: 24 10% 10%; /* #1C1917 */
+    --surface: 60 5% 96%;          /* #F5F5F4 */
+    --surface-raised: 28 11% 93%;  /* #EFEDEB */
+
+    /* Brand */
+    --primary: 24 5% 45%;          /* #78716C stone */
+    --primary-foreground: 60 9% 98%; /* #FAFAF9 */
+    --secondary: 60 5% 96%;        /* #F5F5F4 */
+    --secondary-foreground: 24 10% 10%; /* #1C1917 */
+
+    /* UI States */
+    --muted: 60 5% 96%;            /* #F5F5F4 */
+    --muted-foreground: 24 5% 32%; /* #57534E */
+    --accent: 28 11% 93%;          /* #EFEDEB */
+    --accent-foreground: 24 10% 10%; /* #1C1917 */
+    --destructive: 0 72% 51%;      /* #DC2626 */
+    --destructive-foreground: 60 9% 98%; /* #FAFAF9 */
+
+    /* Text */
+    --text-primary: 24 10% 10%;    /* #1C1917 */
+    --text-secondary: 24 5% 32%;   /* #57534E */
+    --text-tertiary: 23 5% 64%;    /* #A8A29E */
+
+    /* Borders */
+    --border: 20 6% 90%;           /* #E7E5E4 subtle */
+    --border-subtle: 20 6% 90%;    /* #E7E5E4 */
+    --border-medium: 22 6% 83%;    /* #D6D3D1 */
+    --border-strong: 23 5% 64%;    /* #A8A29E */
+    --input: 22 6% 83%;            /* #D6D3D1 */
+
+    /* Focus */
+    --ring: 24 5% 45%;             /* #78716C */
+
+    /* Semantic */
+    --success: 85 85% 34%;         /* #65A30D */
+    --warning: 41 96% 40%;         /* #CA8A04 */
+    --error: 0 72% 51%;            /* #DC2626 */
+    --info: 24 5% 45%;             /* #78716C */
+
+    /* Border radius — flat design */
+    --radius: 0px;
   }
 
   * {
@@ -31,6 +63,78 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: system-ui, -apple-system, sans-serif;
+    font-family: Inter, -apple-system, 'Segoe UI', Helvetica, sans-serif;
+    font-size: 17px;
+    line-height: 1.8;
+  }
+
+  /* ThoughtStream Typography Utilities */
+  .ts-display {
+    font-family: 'Libre Baskerville', Georgia, 'Times New Roman', serif;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  .ts-headline {
+    font-family: 'Libre Baskerville', Georgia, 'Times New Roman', serif;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -0.015em;
+  }
+
+  .ts-subhead {
+    font-family: 'Libre Baskerville', Georgia, 'Times New Roman', serif;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+  }
+
+  .ts-body-lg {
+    font-family: Inter, -apple-system, 'Segoe UI', Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.75;
+  }
+
+  .ts-body {
+    font-family: Inter, -apple-system, 'Segoe UI', Helvetica, sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.8;
+  }
+
+  .ts-body-sm {
+    font-family: Inter, -apple-system, 'Segoe UI', Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.7;
+  }
+
+  .ts-caption {
+    font-family: Inter, -apple-system, 'Segoe UI', Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+  }
+
+  .ts-overline {
+    font-family: Inter, -apple-system, 'Segoe UI', Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .ts-code {
+    font-family: 'Source Code Pro', 'Fira Code', Consolas, monospace;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.7;
   }
 }

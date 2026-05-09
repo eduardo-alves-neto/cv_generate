@@ -74,12 +74,12 @@ export function ConvertForm({
   return (
     <form onSubmit={handleSubmit} className="flex w-full flex-col gap-5" noValidate>
       {/* API key status bar */}
-      <div className="flex items-center justify-between rounded-md border border-border bg-muted/40 px-3 py-2 text-xs text-muted-foreground">
-        <span>Chave da API configurada</span>
+      <div className="flex items-center justify-between border border-border bg-muted/40 px-3 py-2">
+        <span className="ts-caption text-muted-foreground">Chave da API configurada</span>
         <button
           type="button"
           onClick={clearApiKey}
-          className="text-destructive hover:underline"
+          className="ts-caption text-destructive hover:underline underline-offset-4"
         >
           Remover chave
         </button>
@@ -88,8 +88,8 @@ export function ConvertForm({
       {/* Two-column grid: job description (left) · PDF upload (right) */}
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 items-start">
         {/* Left column — Job Description */}
-        <div className="flex flex-col gap-1.5">
-          <label className="text-sm font-medium text-foreground" htmlFor="job-description">
+        <div className="flex flex-col gap-2">
+          <label className="ts-caption font-semibold text-muted-foreground" htmlFor="job-description">
             Job Description <span className="text-destructive">*</span>
           </label>
           <textarea
@@ -100,20 +100,20 @@ export function ConvertForm({
             rows={10}
             disabled={isPending}
             placeholder="Paste the full job posting here…"
-            className="w-full rounded-md border border-input bg-background px-3 py-2
-              text-sm text-foreground placeholder:text-muted-foreground
-              focus:outline-none focus:ring-2 focus:ring-ring
-              disabled:cursor-not-allowed disabled:opacity-50
+            className="w-full border border-input bg-background px-4 py-3
+              ts-body-sm text-foreground placeholder:text-muted-foreground
+              focus:outline-none focus:border-primary focus:ring-2 focus:ring-background focus:ring-offset-2 focus:ring-offset-primary
+              disabled:cursor-not-allowed disabled:opacity-50 disabled:bg-muted
               resize-y min-h-[200px]"
           />
-          <p className="text-right text-xs text-muted-foreground">
+          <p className="ts-caption text-right text-muted-foreground">
             {jobDescription.length} / {MAX_JOB_DESC_CHARS}
           </p>
         </div>
 
         {/* Right column — PDF Upload */}
-        <div className="flex flex-col gap-1.5">
-          <p className="text-sm font-medium text-foreground">
+        <div className="flex flex-col gap-2">
+          <p className="ts-caption font-semibold text-muted-foreground">
             PDF Resume <span className="text-destructive">*</span>
           </p>
           <DropZone
@@ -134,8 +134,8 @@ export function ConvertForm({
       {displayError && (
         <div
           role="alert"
-          className="flex items-start gap-2 rounded-md border border-destructive/50
-            bg-destructive/10 px-3 py-2 text-sm text-destructive"
+          className="flex items-start gap-2 border border-destructive/50
+            bg-destructive/10 px-3 py-2 ts-body-sm text-destructive"
         >
           <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
           <span>{displayError}</span>
@@ -146,16 +146,17 @@ export function ConvertForm({
       <button
         type="submit"
         disabled={isPending || !selectedFile || !jobDescription.trim() || !apiKey}
-        className="w-full rounded-md bg-primary px-4 py-2.5 text-sm font-medium
+        className="w-full bg-primary px-6 py-3 ts-body-sm font-semibold
           text-primary-foreground transition-colors
-          hover:bg-primary/90
-          disabled:cursor-not-allowed disabled:opacity-50"
+          hover:bg-[#57534E]
+          active:bg-[#44403C]
+          disabled:cursor-not-allowed disabled:opacity-40"
       >
         {isPending ? 'Converting…' : 'Convert to ATS'}
       </button>
 
       {/* Privacy disclosure — required by Constitution Principle I */}
-      <p className="text-center text-xs text-muted-foreground">
+      <p className="text-center ts-caption text-muted-foreground">
         Seu currículo e a vaga são processados pelo Google Gemini AI. Nenhum dado é armazenado.
       </p>
     </form>

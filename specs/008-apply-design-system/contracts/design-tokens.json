@@ -1,0 +1,285 @@
+{
+  "version": "1.0.0",
+  "format": "ThoughtStream Design Tokens",
+  "description": "Machine-readable design token contract for ThoughtStream design system",
+  "source": "DESIGN.md",
+  "colors": {
+    "brand": {
+      "primary": {
+        "value": "#78716C",
+        "name": "Stone",
+        "role": "Anchors UI elements, links, icons",
+        "tailwindKey": "primary"
+      },
+      "secondary": {
+        "value": "#A8A29E",
+        "name": "Sage",
+        "role": "Supporting accents, dividers",
+        "tailwindKey": "secondary"
+      },
+      "tertiary": {
+        "value": "#1C1917",
+        "name": "Warm Black",
+        "role": "Emphasis, strong headings",
+        "tailwindKey": "tertiary"
+      }
+    },
+    "surface": {
+      "background": {
+        "value": "#FAFAF9",
+        "role": "Warm white page background",
+        "tailwindKey": "background"
+      },
+      "default": {
+        "value": "#F5F5F4",
+        "role": "Card and section backgrounds",
+        "tailwindKey": "surface"
+      },
+      "raised": {
+        "value": "#EFEDEB",
+        "role": "Hover states, subtle callout blocks",
+        "tailwindKey": "surface-raised"
+      }
+    },
+    "content": {
+      "text-primary": {
+        "value": "#1C1917",
+        "role": "Body copy, headings",
+        "tailwindKey": "text-primary",
+        "contrastRatio": "21:1 on background"
+      },
+      "text-secondary": {
+        "value": "#57534E",
+        "role": "Bylines, metadata, captions",
+        "tailwindKey": "text-secondary",
+        "contrastRatio": "8.5:1 on background"
+      },
+      "text-tertiary": {
+        "value": "#A8A29E",
+        "role": "Placeholders, disabled labels",
+        "tailwindKey": "text-tertiary",
+        "contrastRatio": "4.5:1 on background"
+      }
+    },
+    "border": {
+      "subtle": {
+        "value": "#E7E5E4",
+        "role": "Section dividers (hairline)",
+        "tailwindKey": "border-subtle"
+      },
+      "medium": {
+        "value": "#D6D3D1",
+        "role": "Input borders, card borders",
+        "tailwindKey": "border-medium"
+      },
+      "strong": {
+        "value": "#A8A29E",
+        "role": "Emphasis borders",
+        "tailwindKey": "border-strong"
+      }
+    },
+    "semantic": {
+      "success": {
+        "value": "#65A30D",
+        "role": "Success messages, checkmarks",
+        "tailwindKey": "success"
+      },
+      "warning": {
+        "value": "#CA8A04",
+        "role": "Warning messages, alerts",
+        "tailwindKey": "warning"
+      },
+      "error": {
+        "value": "#DC2626",
+        "role": "Error messages, destructive actions",
+        "tailwindKey": "error"
+      },
+      "info": {
+        "value": "#78716C",
+        "role": "Info messages, help text",
+        "tailwindKey": "info"
+      }
+    }
+  },
+  "typography": {
+    "fontStack": {
+      "display": {
+        "family": "Libre Baskerville",
+        "fallback": ["Georgia", "Times New Roman", "serif"],
+        "cssValue": "'Libre Baskerville', Georgia, 'Times New Roman', serif"
+      },
+      "body": {
+        "family": "Inter",
+        "fallback": ["-apple-system", "Segoe UI", "Helvetica", "sans-serif"],
+        "cssValue": "Inter, -apple-system, 'Segoe UI', Helvetica, sans-serif"
+      },
+      "code": {
+        "family": "Source Code Pro",
+        "fallback": ["Fira Code", "Consolas", "monospace"],
+        "cssValue": "'Source Code Pro', 'Fira Code', Consolas, monospace"
+      }
+    },
+    "typeScale": {
+      "display": {
+        "font": "Libre Baskerville",
+        "size": "40px",
+        "weight": 700,
+        "lineHeight": 1.2,
+        "letterSpacing": "-0.02em",
+        "usage": "Hero article titles",
+        "tailwindClass": "text-display"
+      },
+      "headline": {
+        "font": "Libre Baskerville",
+        "size": "30px",
+        "weight": 700,
+        "lineHeight": 1.3,
+        "letterSpacing": "-0.015em",
+        "usage": "Post titles",
+        "tailwindClass": "text-headline"
+      },
+      "subhead": {
+        "font": "Libre Baskerville",
+        "size": "22px",
+        "weight": 400,
+        "lineHeight": 1.4,
+        "letterSpacing": "-0.01em",
+        "usage": "Section headings",
+        "tailwindClass": "text-subhead"
+      },
+      "body-large": {
+        "font": "Inter",
+        "size": "20px",
+        "weight": 400,
+        "lineHeight": 1.75,
+        "letterSpacing": 0,
+        "usage": "Featured paragraph, lede",
+        "tailwindClass": "text-body-lg"
+      },
+      "body": {
+        "font": "Inter",
+        "size": "17px",
+        "weight": 400,
+        "lineHeight": 1.8,
+        "letterSpacing": 0,
+        "usage": "Default reading text",
+        "tailwindClass": "text-body"
+      },
+      "body-small": {
+        "font": "Inter",
+        "size": "15px",
+        "weight": 400,
+        "lineHeight": 1.7,
+        "letterSpacing": 0,
+        "usage": "Sidebar text, footnotes",
+        "tailwindClass": "text-body-sm"
+      },
+      "caption": {
+        "font": "Inter",
+        "size": "13px",
+        "weight": 400,
+        "lineHeight": 1.5,
+        "letterSpacing": "0.01em",
+        "usage": "Image captions, dates",
+        "tailwindClass": "text-caption"
+      },
+      "overline": {
+        "font": "Inter",
+        "size": "11px",
+        "weight": 600,
+        "lineHeight": 1.4,
+        "letterSpacing": "0.08em",
+        "usage": "Category labels",
+        "tailwindClass": "text-overline"
+      },
+      "code": {
+        "font": "Source Code Pro",
+        "size": "15px",
+        "weight": 400,
+        "lineHeight": 1.7,
+        "letterSpacing": 0,
+        "usage": "Inline code, code blocks",
+        "tailwindClass": "text-code"
+      }
+    }
+  },
+  "spacing": {
+    "baseUnit": "12px",
+    "scale": {
+      "0": "0px",
+      "3": "12px",
+      "6": "24px",
+      "9": "36px",
+      "12": "48px",
+      "15": "60px",
+      "18": "72px",
+      "21": "84px",
+      "24": "96px",
+      "27": "108px",
+      "30": "120px"
+    },
+    "componentPadding": {
+      "small": "12px",
+      "medium": "24px",
+      "large": "48px"
+    },
+    "sectionSpacing": {
+      "mobile": "60px",
+      "tablet": "84px",
+      "desktop": "120px"
+    }
+  },
+  "borderRadius": {
+    "none": "0px",
+    "full": "9999px",
+    "usage": "none=all elements (default), full=avatars only"
+  },
+  "shadow": {
+    "philosophy": "Completely flat — no shadows used",
+    "all": "none",
+    "focusRing": "0 0 0 2px #FAFAF9, 0 0 0 4px #78716C"
+  },
+  "components": {
+    "button": {
+      "variants": ["primary", "secondary", "ghost", "destructive"],
+      "sizes": {
+        "small": { "padding": "8px 16px", "fontSize": "13px" },
+        "medium": { "padding": "12px 24px", "fontSize": "15px" },
+        "large": { "padding": "16px 36px", "fontSize": "17px" }
+      },
+      "states": ["default", "hover", "active", "focus", "disabled"]
+    },
+    "input": {
+      "height": "48px",
+      "padding": "12px 16px",
+      "states": ["default", "focus", "error", "disabled"]
+    },
+    "card": {
+      "variants": ["default", "elevated"],
+      "padding": "36px",
+      "states": ["default", "hover"]
+    },
+    "chip": {
+      "variants": ["filter", "status"],
+      "padding": "6px 14px (filter), 4px 12px (status)"
+    },
+    "checkbox": {
+      "size": "18px",
+      "states": ["unchecked", "checked", "indeterminate", "focus", "disabled"]
+    },
+    "radio": {
+      "size": "18px",
+      "states": ["unselected", "selected", "focus", "disabled"]
+    }
+  },
+  "constraints": {
+    "maximumContentWidth": "680px",
+    "minimumTouchTarget": "44px",
+    "focusRingWidth": "4px",
+    "responsiveBreakpoints": {
+      "mobile": "320px",
+      "tablet": "768px",
+      "desktop": "1024px"
+    }
+  }
+}
