@@ -14,22 +14,22 @@ interface ResultCardProps {
 export function ResultCard({ blobUrl, onReset }: ResultCardProps) {
   return (
     <div
-      className="flex flex-col items-center gap-6 rounded-xl border border-border
-        bg-card p-8 text-center shadow-sm"
+      className="flex flex-col items-center gap-6 border border-border
+        bg-background p-8 text-center"
     >
-      <CheckCircle2 className="h-14 w-14 text-green-500" aria-hidden="true" />
+      <CheckCircle2 className="h-14 w-14 text-success" aria-hidden="true" />
 
-      <div className="flex flex-col gap-1">
-        <p className="text-xl font-bold text-foreground">Currículo ATS pronto!</p>
-        <p className="text-sm text-muted-foreground">
+      <div className="flex flex-col gap-2">
+        <p className="ts-subhead text-foreground">Currículo ATS pronto!</p>
+        <p className="ts-body-sm text-muted-foreground">
           Seu currículo foi optimizado. Baixe e use nas suas candidaturas.
         </p>
       </div>
 
-      <ul className="w-full max-w-sm rounded-lg border border-border bg-accent/20 px-5 py-4 text-left">
+      <ul className="w-full max-w-sm border border-border bg-accent/20 px-5 py-4 text-left">
         {IMPROVEMENTS.map(tip => (
-          <li key={tip} className="flex items-start gap-2 py-1 text-sm text-foreground">
-            <span className="mt-0.5 text-green-500" aria-hidden="true">✓</span>
+          <li key={tip} className="flex items-start gap-2 py-1 ts-body-sm text-foreground">
+            <span className="mt-0.5 text-success" aria-hidden="true">✓</span>
             {tip}
           </li>
         ))}
@@ -38,9 +38,9 @@ export function ResultCard({ blobUrl, onReset }: ResultCardProps) {
       <a
         href={blobUrl}
         download="ats-cv.pdf"
-        className="inline-flex w-full max-w-xs items-center justify-center gap-2 rounded-md
-          bg-primary px-6 py-3 text-sm font-medium text-primary-foreground
-          transition-colors hover:bg-primary/90"
+        className="inline-flex w-full max-w-xs items-center justify-center gap-2
+          bg-primary px-6 py-3 ts-body-sm font-semibold text-primary-foreground
+          transition-colors hover:bg-[#57534E] active:bg-[#44403C]"
       >
         <Download className="h-4 w-4" aria-hidden="true" />
         Baixar CV ATS
@@ -49,7 +49,7 @@ export function ResultCard({ blobUrl, onReset }: ResultCardProps) {
       <button
         type="button"
         onClick={onReset}
-        className="text-sm text-muted-foreground underline-offset-4 hover:underline"
+        className="ts-body-sm text-muted-foreground underline-offset-4 hover:underline"
       >
         Converter outro currículo
       </button>

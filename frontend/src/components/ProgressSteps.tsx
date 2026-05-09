@@ -100,7 +100,7 @@ export function ProgressSteps({ isActive, hasError }: ProgressStepsProps) {
                 <Loader2 className="h-5 w-5 animate-spin text-primary" aria-hidden="true" />
               )}
               {state === 'completed' && (
-                <CheckCircle2 className="h-5 w-5 text-green-500" aria-hidden="true" />
+                <CheckCircle2 className="h-5 w-5 text-success" aria-hidden="true" />
               )}
               {state === 'error' && (
                 <XCircle className="h-5 w-5 text-destructive" aria-hidden="true" />
@@ -110,9 +110,9 @@ export function ProgressSteps({ isActive, hasError }: ProgressStepsProps) {
               )}
             </span>
             <span
-              className={clsx('text-sm transition-colors duration-300', {
+              className={clsx('ts-body-sm transition-colors duration-300', {
                 'font-semibold text-foreground': state === 'active',
-                'text-green-600': state === 'completed',
+                'text-success': state === 'completed',
                 'font-medium text-destructive': state === 'error',
                 'text-muted-foreground/40': state === 'pending',
               })}
