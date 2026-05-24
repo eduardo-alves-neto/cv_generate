@@ -1,4 +1,10 @@
-import { Download } from 'lucide-react'
+import { CheckCircle2, Download } from 'lucide-react'
+
+const IMPROVEMENTS = [
+  'Palavras-chave alinhadas com os requisitos da vaga',
+  'Formatação compatível com scanners ATS',
+  'Seções padronizadas para facilitar a triagem',
+]
 
 interface ResultCardProps {
   blobUrl: string
@@ -7,48 +13,45 @@ interface ResultCardProps {
 
 export function ResultCard({ blobUrl, onReset }: ResultCardProps) {
   return (
-    <div className="flex flex-col items-center gap-4 rounded-lg border border-border
-      bg-accent/30 p-6 text-center">
-      <div className="flex flex-col items-center gap-1">
-        <p className="text-base font-semibold text-foreground">
-          Your ATS CV is ready!
-        </p>
-        <p className="text-sm text-muted-foreground">
-          Download it and use it in your job applications.
+    <div
+      className="flex flex-col items-center gap-6 border border-border
+        bg-background p-8 text-center"
+    >
+      <CheckCircle2 className="h-14 w-14 text-success" aria-hidden="true" />
+
+      <div className="flex flex-col gap-2">
+        <p className="ts-subhead text-foreground">Currículo ATS pronto!</p>
+        <p className="ts-body-sm text-muted-foreground">
+          Seu currículo foi optimizado. Baixe e use nas suas candidaturas.
         </p>
       </div>
 
-      <div className="flex flex-col sm:flex-row gap-3 w-full justify-center">
-        <a
-          href={blobUrl}
-          download="ats-cv.pdf"
-          className="inline-flex items-center justify-center gap-2 rounded-md
-            bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground
-            transition-colors hover:bg-primary/90"
-        >
-          <Download className="h-4 w-4" aria-hidden="true" />
-          Download ATS CV
-        </a>
+      <ul className="w-full max-w-sm border border-border bg-accent/20 px-5 py-4 text-left">
+        {IMPROVEMENTS.map(tip => (
+          <li key={tip} className="flex items-start gap-2 py-1 ts-body-sm text-foreground">
+            <span className="mt-0.5 text-success" aria-hidden="true">✓</span>
+            {tip}
+          </li>
+        ))}
+      </ul>
 
-        {/* Re-download — US3: reuses stored blobUrl without a new API call */}
-        <a
-          href={blobUrl}
-          download="ats-cv.pdf"
-          className="inline-flex items-center justify-center gap-2 rounded-md
-            border border-border bg-background px-5 py-2.5 text-sm font-medium
-            text-foreground transition-colors hover:bg-accent"
-        >
-          <Download className="h-4 w-4" aria-hidden="true" />
-          Download Again
-        </a>
-      </div>
+      <a
+        href={blobUrl}
+        download="ats-cv.pdf"
+        className="inline-flex w-full max-w-xs items-center justify-center gap-2
+          bg-primary px-6 py-3 ts-body-sm font-semibold text-primary-foreground
+          transition-colors hover:bg-[#57534E] active:bg-[#44403C]"
+      >
+        <Download className="h-4 w-4" aria-hidden="true" />
+        Baixar CV ATS
+      </a>
 
       <button
         type="button"
         onClick={onReset}
-        className="text-xs text-muted-foreground underline-offset-2 hover:underline"
+        className="ts-body-sm text-muted-foreground underline-offset-4 hover:underline"
       >
-        Convert another CV
+        Converter outro currículo
       </button>
     </div>
   )

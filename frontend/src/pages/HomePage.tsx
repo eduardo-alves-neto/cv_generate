@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { ConvertForm } from '../components/ConvertForm'
-import { ProgressSpinner } from '../components/ProgressSpinner'
+import { ProgressSteps } from '../components/ProgressSteps'
 import { ResultCard } from '../components/ResultCard'
 
 type Stage = 'idle' | 'pending' | 'success' | 'error'
@@ -15,30 +15,31 @@ export function HomePage() {
   }
 
   return (
-    <main className="min-h-screen bg-background px-4 py-10 sm:py-16">
-      <div className="mx-auto w-full max-w-xl">
-        <header className="mb-8 text-center">
-          <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            CV to ATS Converter
-          </h1>
-          <p className="mt-2 text-sm text-muted-foreground">
-            Upload your PDF resume and a job description — get an ATS-optimised CV
-            in seconds, powered by local AI.
-          </p>
-        </header>
-
+    <main className="min-h-screen bg-background px-4 pb-15 pt-9">
+      <div className="mx-auto w-full max-w-4xl">
         {stage !== 'success' && (
-          <div className="rounded-xl border border-border bg-card p-6 shadow-sm">
-            <ConvertForm
-              onConvertStart={() => setStage('pending')}
-              onConvertSuccess={(url) => {
-                setBlobUrl(url)
-                setStage('success')
-              }}
-              onConvertError={() => setStage('error')}
-            />
-            <ProgressSpinner isPending={stage === 'pending'} />
-          </div>
+          <>
+            {/* Form card — flat, no shadow, warm border */}
+            <div className="border border-border bg-background p-6">
+              <ConvertForm
+                onConvertStart={() => setStage('pending')}
+                onConvertSuccess={(url) => {
+                  setBlobUrl(url)
+                  setStage('success')
+                }}
+                onConvertError={() => setStage('error')}
+              />
+            </div>
+
+            {stage !== 'idle' && (
+              <div className="mt-4 border border-border bg-background px-6 py-2">
+                <ProgressSteps
+                  isActive={stage === 'pending'}
+                  hasError={stage === 'error'}
+                />
+              </div>
+            )}
+          </>
         )}
 
         {stage === 'success' && blobUrl && (

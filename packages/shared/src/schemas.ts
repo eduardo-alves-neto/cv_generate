@@ -2,6 +2,7 @@ import { z } from 'zod'
 
 export const ConvertRequestBodySchema = z.object({
   jobDescription: z.string().min(1, 'Job description is required').max(10_000, 'Job description must be at most 10 000 characters'),
+  geminiApiKey: z.string().min(1, 'API key is required'),
 })
 
 export const ApiErrorCodeSchema = z.enum([

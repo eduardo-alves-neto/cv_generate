@@ -9,9 +9,15 @@ vi.mock('../../src/hooks/useConvert', () => ({
   useConvert: vi.fn(),
 }))
 
+vi.mock('../../src/hooks/useApiKey', () => ({
+  useApiKey: vi.fn(),
+}))
+
 import { useConvert } from '../../src/hooks/useConvert'
+import { useApiKey } from '../../src/hooks/useApiKey'
 
 const mockUseConvert = vi.mocked(useConvert)
+const mockUseApiKey = vi.mocked(useApiKey)
 
 function makeWrapper() {
   const queryClient = new QueryClient()
@@ -28,9 +34,16 @@ const defaultHookReturn = {
   reset: vi.fn(),
 }
 
+const defaultApiKeyReturn = {
+  apiKey: 'AIzaTestKey123',
+  setApiKey: vi.fn(),
+  clearApiKey: vi.fn(),
+}
+
 describe('ConvertForm error display', () => {
   beforeEach(() => {
     mockUseConvert.mockReturnValue(defaultHookReturn)
+    mockUseApiKey.mockReturnValue(defaultApiKeyReturn)
   })
 
   it('renders submit button by default', () => {
@@ -39,6 +52,7 @@ describe('ConvertForm error display', () => {
       { wrapper: makeWrapper() },
     )
     expect(screen.getByRole('button', { name: /convert to ats/i })).toBeInTheDocument()
+    expect(screen.queryByText(/configure sua chave/i)).not.toBeInTheDocument()
   })
 
   const errorCases: Array<[ApiError['code'], RegExp]> = [
@@ -46,7 +60,7 @@ describe('ConvertForm error display', () => {
     ['FILE_TOO_LARGE', /10 mb limit/i],
     ['INVALID_JOB_DESCRIPTION', /valid job description/i],
     ['UNREADABLE_PDF', /no extractable text/i],
-    ['AI_UNAVAILABLE', /ollama serve/i],
+    ['AI_UNAVAILABLE', /chave da api gemini/i],
     ['AI_TIMEOUT', /timed out/i],
     ['INTERNAL_ERROR', /unexpected error/i],
   ]
