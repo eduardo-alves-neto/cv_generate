@@ -15,12 +15,12 @@ export function HomePage() {
   }
 
   return (
-    <main className="min-h-screen bg-background px-4 pb-15 pt-9">
+    <main className="min-h-screen bg-canvas px-4 pb-24 pt-12">
       <div className="mx-auto w-full max-w-4xl">
         {stage !== 'success' && (
           <>
-            {/* Form card — flat, no shadow, warm border */}
-            <div className="border border-border bg-background p-6">
+            {/* Form card — editorial card: white surface, hairline border, soft-drop on hover */}
+            <div className="rounded-xl border border-hairline bg-card p-6 transition-shadow duration-200 hover:shadow-soft-drop">
               <ConvertForm
                 onConvertStart={() => setStage('pending')}
                 onConvertSuccess={(url) => {
@@ -32,7 +32,7 @@ export function HomePage() {
             </div>
 
             {stage !== 'idle' && (
-              <div className="mt-4 border border-border bg-background px-6 py-2">
+              <div className="mt-4 rounded-xl border border-hairline bg-card px-6 py-2">
                 <ProgressSteps
                   isActive={stage === 'pending'}
                   hasError={stage === 'error'}

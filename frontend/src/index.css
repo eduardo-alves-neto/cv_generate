@@ -1,5 +1,6 @@
-/* ThoughtStream Design System — Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&family=Source+Code+Pro:wght@400;500&display=swap');
+/* Editorial Design System — Google Fonts */
+/* Waldenburg Light is a licensed typeface; EB Garamond at weight 300 is the documented open-source substitute. */
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,300;0,400;1,300&family=Inter:wght@400;500;600;700&family=Source+Code+Pro:wght@400;500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -7,53 +8,58 @@
 
 @layer base {
   :root {
-    /* ThoughtStream Color Tokens (HSL format for Tailwind opacity modifiers) */
+    /* Editorial Design System — Color Tokens (HSL format for Tailwind opacity modifiers) */
 
     /* Surfaces */
-    --background: 60 9% 98%;       /* #FAFAF9 warm white */
-    --foreground: 24 10% 10%;      /* #1C1917 warm black */
-    --card: 60 9% 98%;             /* #FAFAF9 */
-    --card-foreground: 24 10% 10%; /* #1C1917 */
-    --surface: 60 5% 96%;          /* #F5F5F4 */
-    --surface-raised: 28 11% 93%;  /* #EFEDEB */
+    --background: 0 0% 96%;         /* #f5f5f5 canvas */
+    --foreground: 20 14% 4%;        /* #0c0a09 ink */
+    --card: 0 0% 100%;              /* #ffffff surface-card */
+    --card-foreground: 20 14% 4%;   /* #0c0a09 */
+    --canvas: 0 0% 96%;             /* #f5f5f5 */
+    --canvas-soft: 0 0% 98%;        /* #fafafa */
+    --canvas-deep: 20 14% 4%;       /* #0c0a09 */
+    --ink: 20 14% 4%;               /* #0c0a09 */
 
     /* Brand */
-    --primary: 24 5% 45%;          /* #78716C stone */
-    --primary-foreground: 60 9% 98%; /* #FAFAF9 */
-    --secondary: 60 5% 96%;        /* #F5F5F4 */
-    --secondary-foreground: 24 10% 10%; /* #1C1917 */
+    --primary: 12 6% 15%;           /* #292524 ink pill */
+    --primary-foreground: 0 0% 100%; /* #ffffff on-primary */
+    --primary-active: 20 14% 4%;    /* #0c0a09 press state */
+    --secondary: 30 6% 94%;         /* #f0efed surface-strong */
+    --secondary-foreground: 20 14% 4%; /* #0c0a09 */
 
     /* UI States */
-    --muted: 60 5% 96%;            /* #F5F5F4 */
-    --muted-foreground: 24 5% 32%; /* #57534E */
-    --accent: 28 11% 93%;          /* #EFEDEB */
-    --accent-foreground: 24 10% 10%; /* #1C1917 */
-    --destructive: 0 72% 51%;      /* #DC2626 */
-    --destructive-foreground: 60 9% 98%; /* #FAFAF9 */
+    --muted: 0 0% 98%;              /* #fafafa canvas-soft */
+    --muted-foreground: 30 5% 47%;  /* #777169 muted */
+    --accent: 30 6% 94%;            /* #f0efed surface-strong */
+    --accent-foreground: 20 14% 4%; /* #0c0a09 */
+    --destructive: 0 74% 47%;       /* #dc2626 */
+    --destructive-foreground: 0 0% 100%; /* #ffffff */
 
     /* Text */
-    --text-primary: 24 10% 10%;    /* #1C1917 */
-    --text-secondary: 24 5% 32%;   /* #57534E */
-    --text-tertiary: 23 5% 64%;    /* #A8A29E */
+    --text-primary: 20 14% 4%;      /* #0c0a09 ink */
+    --text-body: 0 0% 31%;          /* #4e4e4e body */
+    --text-body-strong: 12 6% 15%;  /* #292524 */
+    --text-muted: 30 5% 47%;        /* #777169 */
+    --text-muted-soft: 24 6% 65%;   /* #a8a29e disabled */
 
-    /* Borders */
-    --border: 20 6% 90%;           /* #E7E5E4 subtle */
-    --border-subtle: 20 6% 90%;    /* #E7E5E4 */
-    --border-medium: 22 6% 83%;    /* #D6D3D1 */
-    --border-strong: 23 5% 64%;    /* #A8A29E */
-    --input: 22 6% 83%;            /* #D6D3D1 */
+    /* Borders / hairlines */
+    --border: 20 6% 90%;            /* #e7e5e4 hairline */
+    --hairline: 20 6% 90%;          /* #e7e5e4 */
+    --hairline-soft: 30 6% 94%;     /* #f0efed */
+    --hairline-strong: 22 6% 83%;   /* #d6d3d1 */
+    --input: 22 6% 83%;             /* #d6d3d1 */
 
     /* Focus */
-    --ring: 24 5% 45%;             /* #78716C */
+    --ring: 20 14% 4%;              /* #0c0a09 ink */
 
     /* Semantic */
-    --success: 85 85% 34%;         /* #65A30D */
-    --warning: 41 96% 40%;         /* #CA8A04 */
-    --error: 0 72% 51%;            /* #DC2626 */
-    --info: 24 5% 45%;             /* #78716C */
+    --success: 142 71% 33%;         /* #16a34a */
+    --warning: 41 96% 40%;          /* #ca8a04 */
+    --error: 0 74% 47%;             /* #dc2626 */
+    --info: 12 6% 15%;              /* #292524 */
 
-    /* Border radius — flat design */
-    --radius: 0px;
+    /* Border radius — soft editorial geometry, pill CTAs */
+    --radius: 8px;
   }
 
   * {
@@ -64,71 +70,102 @@
   body {
     @apply bg-background text-foreground;
     font-family: Inter, -apple-system, 'Segoe UI', Helvetica, sans-serif;
-    font-size: 17px;
-    line-height: 1.8;
-  }
-
-  /* ThoughtStream Typography Utilities */
-  .ts-display {
-    font-family: 'Libre Baskerville', Georgia, 'Times New Roman', serif;
-    font-size: 40px;
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
-  }
-
-  .ts-headline {
-    font-family: 'Libre Baskerville', Georgia, 'Times New Roman', serif;
-    font-size: 30px;
-    font-weight: 700;
-    line-height: 1.3;
-    letter-spacing: -0.015em;
-  }
-
-  .ts-subhead {
-    font-family: 'Libre Baskerville', Georgia, 'Times New Roman', serif;
-    font-size: 22px;
+    font-size: 16px;
     font-weight: 400;
-    line-height: 1.4;
-    letter-spacing: -0.01em;
+    line-height: 1.5;
+    letter-spacing: 0.16px;
   }
 
-  .ts-body-lg {
+  /* Editorial Typography Utilities — mirrors DESIGN.md `{typography.*}` tokens */
+
+  /* {typography.display-mega} — 64/300/1.05/-1.92px — homepage hero h1 */
+  .ts-display {
+    font-family: '"EB Garamond"', 'Times New Roman', serif;
+    font-size: 64px;
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -1.92px;
+  }
+
+  /* {typography.display-lg} — 36/300/1.17/-0.36px — section heads */
+  .ts-headline {
+    font-family: '"EB Garamond"', 'Times New Roman', serif;
+    font-size: 36px;
+    font-weight: 300;
+    line-height: 1.17;
+    letter-spacing: -0.36px;
+  }
+
+  /* {typography.display-sm} — 24/300/1.2/0 — card group titles */
+  .ts-subhead {
+    font-family: '"EB Garamond"', 'Times New Roman', serif;
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 1.2;
+    letter-spacing: 0;
+  }
+
+  /* {typography.title-md} — 20/500/1.35/0 — Inter component titles */
+  .ts-title {
     font-family: Inter, -apple-system, 'Segoe UI', Helvetica, sans-serif;
     font-size: 20px;
+    font-weight: 500;
+    line-height: 1.35;
+    letter-spacing: 0;
+  }
+
+  /* {typography.body-md} — 16/400/1.5/0.16px — default body */
+  .ts-body-lg {
+    font-family: Inter, -apple-system, 'Segoe UI', Helvetica, sans-serif;
+    font-size: 18px;
     font-weight: 400;
-    line-height: 1.75;
+    line-height: 1.5;
+    letter-spacing: 0.16px;
   }
 
   .ts-body {
     font-family: Inter, -apple-system, 'Segoe UI', Helvetica, sans-serif;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 400;
-    line-height: 1.8;
+    line-height: 1.5;
+    letter-spacing: 0.16px;
   }
 
+  /* {typography.body-sm} — 15/400/1.47/0.15px — footer/secondary body */
   .ts-body-sm {
     font-family: Inter, -apple-system, 'Segoe UI', Helvetica, sans-serif;
     font-size: 15px;
     font-weight: 400;
-    line-height: 1.7;
+    line-height: 1.47;
+    letter-spacing: 0.15px;
   }
 
+  /* {typography.caption} — 14/400/1.5/0 — photo captions */
   .ts-caption {
     font-family: Inter, -apple-system, 'Segoe UI', Helvetica, sans-serif;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 400;
     line-height: 1.5;
-    letter-spacing: 0.01em;
+    letter-spacing: 0;
   }
 
+  /* {typography.caption-uppercase} — 12/600/1.4/0.96px — section labels, badges */
   .ts-overline {
     font-family: Inter, -apple-system, 'Segoe UI', Helvetica, sans-serif;
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 600;
     line-height: 1.4;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.96px;
     text-transform: uppercase;
+  }
+
+  /* {typography.button} — 15/500/1.0/0 — CTA pill label */
+  .ts-button {
+    font-family: Inter, -apple-system, 'Segoe UI', Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0;
   }
 
   .ts-code {
@@ -136,5 +173,17 @@
     font-size: 15px;
     font-weight: 400;
     line-height: 1.7;
+  }
+}
+
+@layer components {
+  /* {component.gradient-orb-card} atmospheric decoration — pure decoration, never a content surface */
+  .gradient-orb {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(48px);
+    opacity: 0.55;
+    pointer-events: none;
+    z-index: 0;
   }
 }

@@ -74,8 +74,10 @@ export function ConvertForm({
   return (
     <form onSubmit={handleSubmit} className="flex w-full flex-col gap-5" noValidate>
       {/* API key status bar */}
-      <div className="flex items-center justify-between border border-border bg-muted/40 px-3 py-2">
-        <span className="ts-caption text-muted-foreground">Chave da API configurada</span>
+      <div className="flex items-center justify-between rounded-lg border border-hairline bg-canvas-soft px-4 py-2.5">
+        <span className="ts-overline rounded-pill bg-accent px-2.5 py-1 text-accent-foreground">
+          Chave da API configurada
+        </span>
         <button
           type="button"
           onClick={clearApiKey}
@@ -100,9 +102,9 @@ export function ConvertForm({
             rows={10}
             disabled={isPending}
             placeholder="Paste the full job posting here…"
-            className="w-full border border-input bg-background px-4 py-3
+            className="w-full rounded-md border border-input bg-card px-4 py-3
               ts-body-sm text-foreground placeholder:text-muted-foreground
-              focus:outline-none focus:border-primary focus:ring-2 focus:ring-background focus:ring-offset-2 focus:ring-offset-primary
+              focus:outline-none focus:border-2 focus:border-ink focus:px-[15px] focus:py-[11px]
               disabled:cursor-not-allowed disabled:opacity-50 disabled:bg-muted
               resize-y min-h-[200px]"
           />
@@ -134,7 +136,7 @@ export function ConvertForm({
       {displayError && (
         <div
           role="alert"
-          className="flex items-start gap-2 border border-destructive/50
+          className="flex items-start gap-2 rounded-md border border-destructive/50
             bg-destructive/10 px-3 py-2 ts-body-sm text-destructive"
         >
           <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
@@ -142,14 +144,14 @@ export function ConvertForm({
         </div>
       )}
 
-      {/* Submit — full width */}
+      {/* Submit — full width ink pill */}
       <button
         type="submit"
         disabled={isPending || !selectedFile || !jobDescription.trim() || !apiKey}
-        className="w-full bg-primary px-6 py-3 ts-body-sm font-semibold
+        className="h-11 w-full rounded-pill bg-primary px-6 ts-button
           text-primary-foreground transition-colors
-          hover:bg-[#57534E]
-          active:bg-[#44403C]
+          hover:bg-primary-active
+          active:bg-primary-active
           disabled:cursor-not-allowed disabled:opacity-40"
       >
         {isPending ? 'Converting…' : 'Convert to ATS'}

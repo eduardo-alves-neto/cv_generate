@@ -24,8 +24,8 @@ export function ApiKeySetup({ onSave }: ApiKeySetupProps) {
   return (
     <div className="flex flex-col gap-6">
       <div className="flex items-center gap-2 text-foreground">
-        <KeyRound className="h-5 w-5 text-primary shrink-0" aria-hidden="true" />
-        <h2 className="ts-subhead text-foreground">Configure sua chave da API Gemini</h2>
+        <KeyRound className="h-5 w-5 text-ink shrink-0" aria-hidden="true" />
+        <h2 className="ts-title text-ink">Configure sua chave da API Gemini</h2>
       </div>
 
       <p className="ts-body-sm text-muted-foreground">
@@ -48,9 +48,9 @@ export function ApiKeySetup({ onSave }: ApiKeySetupProps) {
             }}
             placeholder="AIza..."
             autoComplete="off"
-            className="h-12 w-full border border-input bg-background px-4 py-3
+            className="h-11 w-full rounded-md border border-input bg-card px-4 py-3
               ts-body-sm text-foreground placeholder:text-muted-foreground
-              focus:outline-none focus:border-primary focus:ring-2 focus:ring-background focus:ring-offset-2 focus:ring-offset-primary"
+              focus:outline-none focus:border-2 focus:border-ink focus:px-[15px]"
           />
           {validationError && (
             <p className="ts-caption text-destructive">{validationError}</p>
@@ -59,17 +59,17 @@ export function ApiKeySetup({ onSave }: ApiKeySetupProps) {
 
         <button
           type="submit"
-          className="w-full bg-primary px-6 py-3 ts-body-sm font-semibold
+          className="h-11 w-full rounded-pill bg-primary px-6 ts-button
             text-primary-foreground transition-colors
-            hover:bg-[#57534E]
-            active:bg-[#44403C]"
+            hover:bg-primary-active
+            active:bg-primary-active"
         >
           Salvar chave
         </button>
       </form>
 
       {/* Tutorial section */}
-      <div className="border border-border">
+      <div className="rounded-xl border border-hairline overflow-hidden">
         <button
           type="button"
           onClick={() => setTutorialOpen(open => !open)}
@@ -84,7 +84,7 @@ export function ApiKeySetup({ onSave }: ApiKeySetupProps) {
         </button>
 
         {tutorialOpen && (
-          <div className="px-4 pb-4 border-t border-border">
+          <div className="px-4 pb-4 border-t border-hairline">
             <ol className="flex flex-col gap-2 ts-body-sm text-foreground list-decimal list-inside mt-4">
               <li>
                 Acesse{' '}
@@ -92,7 +92,7 @@ export function ApiKeySetup({ onSave }: ApiKeySetupProps) {
                   href="https://aistudio.google.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-primary underline underline-offset-2 hover:text-[#57534E]"
+                  className="text-ink underline underline-offset-2 hover:text-primary-active"
                 >
                   aistudio.google.com
                 </a>{' '}

@@ -108,14 +108,14 @@ export function DropZone({
       onDragLeave={handleDragLeave}
       onDrop={handleDrop}
       className={clsx(
-        'flex flex-col items-center justify-center gap-3 border-2 border-dashed',
+        'flex flex-col items-center justify-center gap-3 rounded-xl border-2 border-dashed',
         'px-6 py-9 text-center transition-colors duration-200',
         'focus:outline-none focus-visible:ring-2 focus-visible:ring-ring',
         !disabled && 'cursor-pointer',
         {
-          'border-border bg-background hover:border-primary hover:bg-accent/20':
+          'border-hairline-strong bg-card hover:border-ink hover:bg-accent/20':
             !dragActive && !isSelected && !hasError && !disabled,
-          'border-primary bg-muted/20': dragActive,
+          'border-ink bg-muted/20': dragActive,
           'border-success bg-accent/20': isSelected,
           'border-destructive bg-destructive/5': hasError,
           'cursor-not-allowed opacity-40': disabled,
